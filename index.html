@@ -1,94 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantum Computation and Complexity</title>
-
-  <style>
-    body {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #222;
-    }
-
-    h1, h2 {
-      color: #183b70;
-    }
-
-    h1 {
-      border-bottom: 2px solid #183b70;
-      padding-bottom: 10px;
-    }
-
-    section {
-      margin-top: 35px;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P vs BQP</title>
+<style>
+:root{color-scheme:light;--ink:#262626;--muted:#6b7280;--line:#bfbfbf;--accent:#1677ff}*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff}a{color:inherit}a:focus-visible{outline:3px solid #91caff;outline-offset:4px}.wrap{max-width:1080px;margin:auto;padding:64px 24px 80px}#home>.eyebrow{text-align:center;color:#595959;font-size:.9rem;margin-bottom:16px}h1{font-size:clamp(3rem,7vw,5rem);line-height:1.05;letter-spacing:-.045em;margin:14px 0}#home>h1{text-align:center}.intro{color:var(--muted);font-size:1.05rem;line-height:1.7;margin:20px auto 0;max-width:650px;text-align:center}.tree{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,130px);gap:56px 28px;margin-top:68px}.connections{position:absolute;width:100%;height:100%;inset:0;overflow:visible;pointer-events:none}.connections path{fill:none;stroke:var(--line);stroke-width:1.5;vector-effect:non-scaling-stroke}.node{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;background:#fff;border:1px solid #d9d9d9;border-radius:8px;padding:20px 22px;box-shadow:0 2px 0 rgba(0,0,0,.02);transition:border-color .2s,color .2s,box-shadow .2s}.node:hover{color:#4096ff;border-color:#4096ff;box-shadow:0 2px 8px rgba(0,0,0,.08)}.node strong{font-size:1.08rem;line-height:1.4;font-weight:500}.root{grid-column:2;grid-row:1}.shor{grid-column:1;grid-row:2}.simon{grid-column:2;grid-row:2}.pspace{grid-column:3;grid-row:2}.crypto{grid-column:1;grid-row:3}.raz{grid-column:2;grid-row:3}.topic{max-width:740px}.back{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border:1px solid #d9d9d9;border-radius:8px;text-decoration:none;font-size:1.5rem;margin-bottom:48px}.back:hover{color:#1677ff;border-color:#4096ff}.topic .eyebrow{color:#8c8c8c;font-size:.8rem}.topic h1{font-size:clamp(2.4rem,6vw,4rem)}.topic p{line-height:1.85;color:#434343;font-size:1.08rem}.topic a:not(.back){color:#1677ff}.topic hr{border:0;border-top:1px solid #f0f0f0;margin:30px 0}[hidden]{display:none!important}
+@media(max-width:700px){.wrap{padding:40px 20px 60px}.tree{display:flex;flex-direction:column;gap:20px;margin-top:45px}.connections{display:none}.node{min-height:76px}.root{margin-bottom:8px}.crypto,.raz{margin-left:28px}}
+</style>
 </head>
 <body>
-  <h1>Quantum Computation and Complexity</h1>
-  <p>A project by Rafael Soares</p>
+<main class="wrap">
+<div id="home">
+<div class="eyebrow">A journey through the power of quantum computers over traditional computers</div>
+<h1>P vs BQP</h1>
+<p class="intro">Explore the topics below. The connections suggest a reading order; every section is open.</p>
+<nav class="tree" aria-label="Topic tree">
+<svg class="connections" viewBox="0 0 1000 502" preserveAspectRatio="none" aria-hidden="true">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 Z" style="fill:#bfbfbf;stroke:none"/></marker></defs>
+<path d="M500 130 V158 H157 V182" marker-end="url(#arrow)"/><path d="M500 130 V182" marker-end="url(#arrow)"/><path d="M500 130 V158 H843 V182" marker-end="url(#arrow)"/><path d="M157 316 V368" marker-end="url(#arrow)"/><path d="M500 316 V368" marker-end="url(#arrow)"/>
+</svg>
+<a class="node root" href="#bqp"><strong>BQP and P</strong></a>
+<a class="node shor" href="#shor"><strong>Shor's Algorithm</strong></a>
+<a class="node simon" href="#simon"><strong>Simon's Algorithm</strong></a>
+<a class="node pspace" href="#pspace"><strong>BQP ⊆ PSPACE</strong></a>
+<a class="node crypto" href="#cryptography"><strong>Implications for Cryptography</strong></a>
+<a class="node raz" href="#raz-tal"><strong>Raz and Tal: BQP vs PH</strong></a>
+</nav>
 
-  <h2>Proposed Outline</h2>
-
-  <section>
-    <h3>1. BQP and P</h3>
-    <p>
-      First, I want to define BQP, and explore the relation between BQP and P.
-      It is trivial that P ⊆ BQP, yet, we don't know whether P ≠ BQP.
-    </p>
-  </section>
-
-  <section>
-    <h3>2. Shor's Algorithm</h3>
-    <p>
-      I plan to present Shor's algorithm which shows Integer Factorization is
-      in BQP. The fact that we know no algorithm that solves Integer
-      Factorization in P, and that modern cryptography heavily relies on the
-      assumption that factorization is not in P, serves as strong motivation of
-      why most researchers believe P ≠ BQP.
-    </p>
-  </section>
-
-  <section>
-    <h3>3. Simon's Algorithm</h3>
-    <p>
-      After that, I will describe Simon's algorithm, showing
-      P<sup>A</sup> ≠ BQP<sup>A</sup> under some oracle A.
-    </p>
-  </section>
-
-  <section>
-    <h3>4. Oracle Separation of BQP and PH</h3>
-    <p>
-      Finally, I will briefly comment on the current research frontier by
-      mentioning the work of Ran Raz and Avishay Tal (2018)
-      (BQP<sup>A</sup> ⊄ PH<sup>A</sup> under some oracle A) even though I will
-      not be able to dive deeper into that as this is out of scope for this
-      class.
-    </p>
-  </section>
-
-  <section>
-    <h3>5. BQP and PSPACE</h3>
-    <p>
-      If there is enough time I could also explain BQP ⊆ PSPACE which means
-      P ≠ BQP implies P ≠ PSPACE, which would be a ground-breaking result in TCS.
-    </p>
-  </section>
-
-  <section>
-    <h2>Resources</h2>
-    <ul>
-      <li><a href="https://arxiv.org/abs/quant-ph/9508027">Shor's paper</a></li>
-      <li><a href="https://epubs.siam.org/doi/10.1137/S0097539796298637">Simon's paper</a></li>
-      <li><a href="https://eccc.weizmann.ac.il/report/2018/107/">Oracle Separation of BQP and PH</a></li>
-      <li>Quantum Computation and Quantum Information, by Michael A. Nielsen and Isaac L. Chuang</li>
-    </ul>
-  </section>
+</div>
+<article id="bqp" class="topic" hidden><a class="back" href="#" aria-label="Back to topic tree">←</a><div class="eyebrow">P vs BQP</div><h1>BQP and P</h1><hr><p>This section will contain a formal definition of BQP. Here, I will briefly comment on how P ⊆ BQP and how, just like with many other complexity classes, we don’t know whether P ≠ BQP.</p></article>
+<article id="shor" class="topic" hidden><a class="back" href="#" aria-label="Back to topic tree">←</a><div class="eyebrow">P vs BQP</div><h1>Shor's Algorithm</h1><hr><p>In this section I will explain how Shor’s algorithm works and show that integer factorization is in BQP.</p><p><a href="https://arxiv.org/abs/quant-ph/9508027">Shor's paper ↗</a></p></article>
+<article id="simon" class="topic" hidden><a class="back" href="#" aria-label="Back to topic tree">←</a><div class="eyebrow">P vs BQP</div><h1>Simon's Algorithm</h1><hr><p>This is an important result that shows P<sup>A</sup> ≠ BQP<sup>A</sup> for some oracle A. This is an important work regarding P vs BQP, and I will cover its proof in this section.</p><p><a href="https://epubs.siam.org/doi/10.1137/S0097539796298637">Simon's paper ↗</a></p></article>
+<article id="pspace" class="topic" hidden><a class="back" href="#" aria-label="Back to topic tree">←</a><div class="eyebrow">P vs BQP</div><h1>BQP ⊆ PSPACE</h1><hr><p>In this section I will prove that BQP is contained in PSPACE, and explain that since P ⊆ BQP ⊆ PSPACE, P ≠ BQP would imply P ≠ PSPACE, one of the long-standing questions in TCS.</p></article>
+<article id="cryptography" class="topic" hidden><a class="back" href="#" aria-label="Back to topic tree">←</a><div class="eyebrow">P vs BQP</div><h1>Implications for Cryptography</h1><hr><p>This will be a meta section explaining how modern cryptography relies on the assumption that integer factoring is not in P, and how progress in quantum computing threatens cryptographic algorithms such as RSA. I will also mention that this assumption (integer factoring ∉ P) is one reason researchers believe P ≠ BQP, that is, that quantum computers have more power than traditional computers.</p></article>
+<article id="raz-tal" class="topic" hidden><a class="back" href="#" aria-label="Back to topic tree">←</a><div class="eyebrow">P vs BQP</div><h1>Raz and Tal: BQP vs PH</h1><hr><p>I will comment on the BQP research frontier by explaining Raz and Tal's (2018) work that proves BQP<sup>A</sup> ⊄ PH<sup>A</sup> for some oracle A. This will be a superficial explanation, as the proof is out of scope for this class.</p><p><a href="https://eccc.weizmann.ac.il/report/2018/107/">Oracle Separation of BQP and PH ↗</a></p></article>
+</main>
+<script>
+let treeScrollY = 0;
+let showingTopic = false;
+function navigate() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  const pages = document.querySelectorAll('.topic');
+  const selected = Array.from(pages).find(page => page.id === id);
+  if (selected && !showingTopic) treeScrollY = window.scrollY;
+  pages.forEach(page => { page.hidden = page !== selected; });
+  document.getElementById('home').hidden = !!selected;
+  document.title = selected ? selected.querySelector('h1').textContent + ' | P vs BQP' : 'P vs BQP';
+  if (selected) window.scrollTo(0, 0);
+  else if (showingTopic) window.scrollTo(0, treeScrollY);
+  showingTopic = !!selected;
+}
+window.addEventListener('hashchange', navigate);
+navigate();
+</script>
 </body>
 </html>

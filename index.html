@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Computation and Complexity</title>
+
+  <style>
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    h1, h2 {
+      color: #183b70;
+    }
+
+    h1 {
+      border-bottom: 2px solid #183b70;
+      padding-bottom: 10px;
+    }
+
+    section {
+      margin-top: 35px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quantum Computation and Complexity</h1>
+  <p>A project by Rafael Soares</p>
+
+  <h2>Proposed Outline</h2>
+
+  <section>
+    <h3>1. BQP and P</h3>
+    <p>
+      First, I want to define BQP, and explore the relation between BQP and P.
+      It is trivial that P ⊆ BQP, yet, we don't know whether P ≠ BQP.
+    </p>
+  </section>
+
+  <section>
+    <h3>2. Shor's Algorithm</h3>
+    <p>
+      I plan to present Shor's algorithm which shows Integer Factorization is
+      in BQP. The fact that we know no algorithm that solves Integer
+      Factorization in P, and that modern cryptography heavily relies on the
+      assumption that factorization is not in P, serves as strong motivation of
+      why most researchers believe P ≠ BQP.
+    </p>
+  </section>
+
+  <section>
+    <h3>3. Simon's Algorithm</h3>
+    <p>
+      After that, I will describe Simon's algorithm, showing
+      P<sup>A</sup> ≠ BQP<sup>A</sup> under some oracle A.
+    </p>
+  </section>
+
+  <section>
+    <h3>4. Oracle Separation of BQP and PH</h3>
+    <p>
+      Finally, I will briefly comment on the current research frontier by
+      mentioning the work of Ran Raz and Avishay Tal (2018)
+      (BQP<sup>A</sup> ⊄ PH<sup>A</sup> under some oracle A) even though I will
+      not be able to dive deeper into that as this is out of scope for this
+      class.
+    </p>
+  </section>
+
+  <section>
+    <h3>5. BQP and PSPACE</h3>
+    <p>
+      If there is enough time I could also explain BQP ⊆ PSPACE which means
+      P ≠ BQP implies P ≠ PSPACE, which would be a ground-breaking result in TCS.
+    </p>
+  </section>
+
+  <section>
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="https://arxiv.org/abs/quant-ph/9508027">Shor's paper</a></li>
+      <li><a href="https://epubs.siam.org/doi/10.1137/S0097539796298637">Simon's paper</a></li>
+      <li><a href="https://eccc.weizmann.ac.il/report/2018/107/">Oracle Separation of BQP and PH</a></li>
+      <li>Quantum Computation and Quantum Information, by Michael A. Nielsen and Isaac L. Chuang</li>
+    </ul>
+  </section>
+</body>
+</html>
